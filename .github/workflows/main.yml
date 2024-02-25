@@ -15,18 +15,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Check if GITHUB_TOKEN is defined
-        run: |
-          if [ -n "$GITHUB_TOKEN" ]; then
-            echo "GITHUB_TOKEN is defined"
-          else
-            echo "GITHUB_TOKEN is not defined"
-          fi
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
           branch: ${{ github.ref }}
           base: "main" 
           title: Automatic Pull Request - Update from ${{ github.ref }}
