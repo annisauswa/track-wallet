@@ -1,23 +1,28 @@
-name: Auto Pull Request | Track Wallet
+name: Automatic Pull Request on Branch Update
 
 on:
   push:
-    branches: [main]
+    branches:
+      - "475357"
+      - "477293"
+      - "482759"
 
 jobs:
-  test-build:
+  create-pull-request:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Testing Build pre-Deploy
-        uses: actions/setup-node@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - run: npm i
-      - run: npm run build
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          base: "main" 
+          title: Automatic Pull Request - Update from ${{ github.ref }}
+          body: |
+            This is an automatic pull request created whenever there are updates on the branch.
+          commit-message: Automatic commit message
+          labels: automatic
