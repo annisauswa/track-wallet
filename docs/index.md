@@ -59,7 +59,7 @@ Pengguna potensial produk ini adalah Gen Z, milenial, pekerja kantoran, dan maha
 ![image](https://github.com/annisauswa/track-wallet/assets/91132619/79211916-6d91-4b30-96b5-efba2d99764b)
 ![image](https://github.com/annisauswa/track-wallet/assets/91132619/31ca3abe-c2c0-493b-b35f-4ed348dda805)
 ![image](https://github.com/annisauswa/track-wallet/assets/91132619/91aeb953-2fec-4819-b900-0c748fd80d53)
-[Link Figma]([https://docs.google.com/presentation/d/1OLaPbvqI3LGuKNzKPCj0tnMb0-dWucu9wVIEC3GLuSM/edit?usp=sharing](https://www.figma.com/file/J6gqLW37qv7XOLo04K7nNx/Lofi-Senpro?type=design&node-id=0%3A1&mode=design&t=PG6WCFEuMs8eMF5L-1)https://www.figma.com/file/J6gqLW37qv7XOLo04K7nNx/Lofi-Senpro?type=design&node-id=0%3A1&mode=design&t=PG6WCFEuMs8eMF5L-1)
+[Link Figma](https://www.figma.com/file/J6gqLW37qv7XOLo04K7nNx/Lofi-Senpro?type=design&node-id=0%3A1&mode=design&t=PG6WCFEuMs8eMF5L-1)
 
 ## Gantt-Chart
 ![image](https://github.com/annisauswa/track-wallet/assets/91132619/64703a96-b49f-4df5-9130-57fa3c9101a9)
