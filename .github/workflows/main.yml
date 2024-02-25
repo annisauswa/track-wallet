@@ -1,4 +1,4 @@
-name: Test, Build, and Deploy | Track Wallet
+name: Auto Pull Request | Track Wallet
 
 on:
   push:
