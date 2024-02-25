@@ -12,11 +12,9 @@ Teknik, Universitas Gadjah Mada</h3>
 <br />
 
 ## 👨‍💻 Manyala's Team Member
-| Nama | NIM | GitHub Profile | Role |
-| --- | --- | --- | --- |
-| Annisa Uswa Sufia | 21/475357/TK/52474 | AIE | [annisauswa](https://github.com/annisauswa) |
-| Daffa Kamal | 21/477293/TK/52564 | CE, PM | [daffakamal](https://github.com/daffakamal) |
-| Zildiray Alfirli | 21/482759/TK/53363 | SE, UXD | [zildirayalfirli](https://github.com/zildirayalfirli) |
+Annisa Uswa Sufia - 21/475357/TK/52474<br/>
+Daffa Kamal - 21/477293/TK/52564<br/>
+Zildiray Alfirli - 21/482759/TK/53363
 
 # Jenis Produk:
 > Track Wallet merupakan aplikasi yang dibuat dengan tujuan untuk dapat membantu para mahasiswa, Gen Z, dan kaum milenial dalam pengelolaan keuangan. Track Wallet menyediakan berbagai fitur seperti Expense Tracker, Expense Categorization, Data Visualization, dan Alert System yang akan membantu user untuk mengelola keuangannya dengan lebih baik.
