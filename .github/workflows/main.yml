@@ -2,11 +2,7 @@ name: Test, Build, and Deploy | Track Wallet
 
 on:
   push:
-    branches:
-      - "main"
-      - "475357"
-      - "477293"
-      - "482759"
+    branches: [main]
 
 jobs:
   test-build:
