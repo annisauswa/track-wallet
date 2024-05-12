@@ -21,7 +21,7 @@ const Advertisement = () => {
   };
 
   return (
-    <div className="px-7 pb-7">
+    <div className="min-h-full px-7 pb-7">
       <h1 className="text-[18px] font-medium mb-4">Advertisement</h1>
       <Slider className="flex" {...settings}>
         <div>
