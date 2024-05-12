@@ -9,7 +9,7 @@ import HistorySmall from "../../../../public/Transaction.png";
 
 const Features = () => {
   return (
-    <div className="min-h-screen flex flex-col pt-1 px-7">
+    <div className="min-h-full flex flex-col pt-1 pb-7 px-7">
       <Link href="#!">
         <button className="w-full py-5 px-6 bg-yellowPrimary rounded-[24px]">
           <div className="flex items-center">

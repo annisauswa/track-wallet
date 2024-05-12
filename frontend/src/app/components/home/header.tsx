@@ -5,7 +5,7 @@ import Person from "../../../../public/Ellipse 6.png";
 
 const Header = () => {
   return (
-    <div className="flex flex-col pt-16 pb-6 px-7">
+    <div className="flex flex-col pt-10 pb-6 px-7">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center space-x-3">
           <Link href="#!">
