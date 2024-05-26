@@ -9,11 +9,15 @@ import { expanseCollection } from "../lib/controller";
 import { NewExpanseType } from "../types/expanse";
 import { useEffect, useState } from "react";
 import { DocumentData, onSnapshot, QuerySnapshot } from "firebase/firestore";
+import FormatPrice from "../../../utils/formatPrice";
+import { set } from "firebase/database";
 
-const ExpenseHistory = () => {
+const ExpenseHistory = (
+  { total, setTotal }: { total: number; setTotal: React.Dispatch<React.SetStateAction<number>> }
+) => {
 
   const [expanses, setExpanses] = useState<NewExpanseType[]>([]);
-  const [total, setTotal] = useState(0);
+  // const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(expanseCollection, (snapshot: QuerySnapshot<DocumentData>) => {
@@ -31,7 +35,7 @@ const ExpenseHistory = () => {
       setExpanses(newExpanses);
 
       const totalPrice = newExpanses.reduce(
-        (sum, expanse) => sum + expanse.price,
+        (sum, expanse) => sum + parseInt(String(expanse.price)),
         0
       );
       setTotal(totalPrice);
@@ -43,7 +47,13 @@ const ExpenseHistory = () => {
   const categoryIcons: { [key: string]: StaticImageData } = {
     food: Restaurant,
     shooping: ShoppingBag,
+    shopping: ShoppingBag,
     subscription: Bill,
+    others: Bill,
+    health: Bill,
+    transportation: Bill,
+    entertainment: Bill,
+    household: Bill,
   };
 
   const getCategoryBackgroundColor = (category: string) => {
@@ -60,7 +70,7 @@ const ExpenseHistory = () => {
   };
 
   return (
-    <div className="w-full pb-7">
+    <div className="w-full px-7 pb-7">
       <div className="w-full flex flex-row justify-between items-center pb-4">
         <h1 className="text-[16px]">Expense History</h1>
       </div>
@@ -95,21 +105,21 @@ const ExpenseHistory = () => {
             </div>
             <div className="text-right right-0">
               <p className="text-[14px] text-[#FD3C4A] mb-1.5">
-                {expanse.price}
+                {FormatPrice(expanse.price)}
               </p>
               <p className="text-[#91919F] text-[12px]">{expanse.date}</p>
             </div>
           </Link>
         ))}
       </div>
-        {expanses.length <1 ? (
+        {/* {expanses.length <1 ? (
           '0'
         ) : (
           <div>
             <span>Total</span>
             <span>${total}</span>
           </div>
-        )}
+        )} */}
 
     </div>
   );

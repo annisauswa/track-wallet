@@ -7,7 +7,7 @@ import IncomeIcon from "../../../public/income.png";
 import ExpenseIcon from "../../../public/expense.png";
 import AIScanIcon from "../../../public/file.png";
 import Navbar from "../components/navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { collection, addDoc } from 'firebase/firestore';
 import { addExpanse } from "../lib/controller";
 
@@ -15,7 +15,7 @@ function AddExpanse() {
   
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("")
-  const [category, setCategory] = useState("shooping")
+  const [category, setCategory] = useState("others")
   const [price, setPrice] = useState("")
   const [date, setDate] = useState("")
 
@@ -29,7 +29,40 @@ function AddExpanse() {
       date,
     });
     console.log("successfully added a new hotel");
+    window.location.href = "/expense";
   };
+
+  const updateCategory = async (title:string) => {
+    try {
+      const response = await fetch(`http://localhost:8000/category?data=${title}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+      );
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      setCategory(data.category); // Update category state with the response
+    } catch (error) {
+      console.error('Error updating category:', error);
+    }
+  };
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      if (title) {
+        updateCategory(title);
+      }
+    }, 500); 
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [title]);
 
   return (
     <div className="h-fit w-fit mx-auto flex flex-col items-center relative">
@@ -76,13 +109,13 @@ function AddExpanse() {
               </div>
               <div className="bg-gray-100 z-30 text-black mb-2 p-5 rounded-[11px]">
                 <label htmlFor="category" className="text-black mb-2">
-                  Category:
+                  Category: {category}
                 </label>
-                <select className="w-full text-black border-b border-black bg-transparent p-2 focus:outline-none focus:ring-0" value={category} onChange={(e) => setCategory(e.target.value)}>
+                {/* <select className="w-full text-black border-b border-black bg-transparent p-2 focus:outline-none focus:ring-0" value={category} onChange={(e) => setCategory(e.target.value)}>
                   <option value="food">food</option>
                   <option value="shooping">shooping</option>
                   <option value="subscription">subscription</option>
-               </select>
+               </select> */}
                </div>
               <div className="bg-gray-100 z-30 text-black mb-2 p-5 rounded-[11px]">
                 <label htmlFor="price" className="text-black mb-2">
@@ -104,8 +137,8 @@ function AddExpanse() {
                   Date:
                 </label>
                 <input
-                  onChange={(e) => setDate(e.target.value)}
-                  type="text"
+                  onChange={(e) => setDate(String(e.target.value))}
+                  type="date"
                   id="date"
                   name="date"
                   className="w-full text-black border-b border-black bg-transparent p-2 focus:outline-none focus:ring-0"

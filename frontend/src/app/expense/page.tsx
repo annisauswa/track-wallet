@@ -1,11 +1,15 @@
+'use client'
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { RiArrowRightSLine } from "react-icons/ri";
 import Navbar from "../components/navbar";
 import ExpenseSmall from "../../../public/expense.png";
 import ExpenseHistory from "../components/expense-history";
+import FormatPrice from "../../../utils/formatPrice";
 
 export default function Expense() {
+  const [total, setTotal] = useState(0);
   return (
     <div className="h-screen w-fit relative mx-auto flex flex-col items-center overflow-visible">
       <div className="w-[389px] min-h-full text-sm bg-redPrimary pt-10">
@@ -25,7 +29,7 @@ export default function Expense() {
           </div>
           <div className="flex flex-col pt-1 pb-6 px-7 space-y-3">
             <h2 className="text-[18px]">Total Expense</h2>
-            <p className="text-[30px] font-semibold">Rp500.000</p>
+            <p className="text-[30px] font-semibold">{FormatPrice(total)}</p>
           </div>
           <div className="bg-blackPrimary py-5 pt-7 pb-80 space-y-5 text-white text-[16px] rounded-t-[40px]">
             <div className="px-8">
@@ -50,7 +54,7 @@ export default function Expense() {
                 </button>
               </Link>
             </div>
-            <ExpenseHistory />
+            <ExpenseHistory total={total} setTotal={setTotal}/>
           </div>
         </div>
         <div className="w-[389px] mx-auto absolute bottom-0">
