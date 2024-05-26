@@ -44,7 +44,7 @@ const ExpenseHistory = () => {
   };
 
   return (
-    <div className="w-full px-7 pb-7">
+    <div className="w-full pb-7">
       <div className="w-full flex flex-row justify-between items-center pb-4">
         <h1 className="text-[16px]">Expense History</h1>
       </div>

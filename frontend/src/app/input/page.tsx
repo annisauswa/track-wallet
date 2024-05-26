@@ -24,7 +24,7 @@ const Input = () => {
               Add
             </h1>
           </div>
-          <Link href="#!">
+          <Link href="/add-income">
             <button className="w-full py-5 px-6 bg-yellowPrimary rounded-[24px]">
               <div className="flex items-center">
                 <div className="rounded-[16px] bg-white p-[13px]">
@@ -41,7 +41,7 @@ const Input = () => {
               </div>
             </button>
           </Link>
-          <Link href="#!">
+          <Link href="/add-expanse">
             <button className="w-full mt-5 py-5 px-6 bg-redPrimary rounded-[24px]">
               <div className="flex items-center">
                 <div className="rounded-[18px] bg-white p-[13px]">
@@ -70,7 +70,7 @@ const Input = () => {
                     className="w-6"
                   />
                 </div>
-                <p className="text-[16px] ml-3">AI Scan</p>
+                <p className="text-[18px] ml-3">AI Scan</p>
                 <RiArrowRightSLine className="ml-auto text-white" size={38} />
               </div>
             </button>
