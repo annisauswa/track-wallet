@@ -1,16 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import { RiArrowRightSLine } from "react-icons/ri";
-import IncomeIcon from "../../../public/income.png";
-import ExpenseIcon from "../../../public/expense.png";
-import AIScanIcon from "../../../public/file.png";
 import Navbar from "../components/navbar";
 
 const AddIncome = () => {
   return (
-    <div className="h-screen w-fit mx-auto flex flex-col items-center">
-      <div className="w-[389px] min-h-screen text-sm bg-blackPrimary pt-10">
-        <div className="w-full px-7">
+    <div className="h-screen w-fit relative mx-auto flex flex-col items-center overflow-y-visible overflow-visible">
+      <div className="absolute -z-0 h-40 w-full rounded-b-[40px] bg-[#01A368]"></div>
+      <div className="w-[389px] text-sm bg-blackPrimary pt-10">
+        <div className="w-full px-7 pb-20">
           <div className="w-full flex flex-row items-center justify-start pb-7">
             <div className="flex flex-row items-center justify-start">
               <Link href="/">
@@ -20,13 +17,13 @@ const AddIncome = () => {
                 />
               </Link>
             </div>
-            <h1 className="relative mx-auto text-center font-bold text-[20px] -translate-x-3">
+            <h1 className="mx-auto text-center font-bold text-[20px] -translate-x-3">
               Add Income
             </h1>
           </div>
           <div>
-            <form className="flex flex-col space-y-4">
-              <div className="bg-gray-100 text-black mb-2 p-5 rounded-[11px]">
+            <form className="flex flex-col space-y-4 pb-14">
+              <div className="bg-gray-100 text-black mb-2 p-5 rounded-[11px] z-40">
                 <label htmlFor="title" className="text-black mb-2">
                   Title:
                 </label>
@@ -90,7 +87,7 @@ const AddIncome = () => {
               </div>
               <button
                 type="submit"
-                className="mt-10 py-2 h-[45px] bg-yellowPrimary text-white text-base rounded-[10px]"
+                className="mt-10 mb-20 py-2 h-[45px] bg-yellowPrimary text-white text-base rounded-[10px]"
               >
                 Create
               </button>
