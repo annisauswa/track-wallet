@@ -32,7 +32,7 @@ export default function Transaction() {
         setError(error.message);
       }
     } else {
-      setUploadResult([]);
+      setUploadResult({item:'', price:0});
     }
   };
   const formatPrice = (price: number) => {
