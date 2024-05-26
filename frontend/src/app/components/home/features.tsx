@@ -88,7 +88,7 @@ const Features = () => {
           </button>
           <p className="pt-1.5">Statistic</p>
         </Link>
-        <Link href="#!" className="text-center">
+        <Link href="aiscanner" className="text-center">
           <button className="flex flex-col items-center justify-center rounded-[16px] bg-white py-[15px] px-[16px]">
             <Image
               src={AIScanSmall}

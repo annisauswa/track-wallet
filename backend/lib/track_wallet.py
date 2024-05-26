@@ -88,7 +88,7 @@ def extract_text_from_receipt(result):
     receipt_text = ''
     if result.status == OperationStatusCodes.succeeded:
         for line in result.analyze_result.read_results[0].lines:
-            print(line.text)
+            # print(line.text)
             receipt_text += line.text + '\n'
     return receipt_text
 
@@ -112,6 +112,6 @@ def extract_items_and_prices(receipt_text):
 
 def scan_receipt(result):
     receipt_text = extract_text_from_receipt(result)
-    print(receipt_text)
+    # print(receipt_text)
     items = extract_items_and_prices(receipt_text)
     return items
