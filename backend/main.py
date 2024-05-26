@@ -50,9 +50,9 @@ async def predict_category(data: str):
         return {"error": str(e)}
     
 
-with open(".\settings.json", "r") as jsonfile:
-    settings = json.load(jsonfile)
-    print(settings)
+# with open(".\settings.json", "r") as jsonfile:
+#     settings = json.load(jsonfile)
+#     print(settings)
 region = 'eastus'
 key = "4f47c6853d074715925ff2c1c957fe52"
 credentials = CognitiveServicesCredentials(key)
