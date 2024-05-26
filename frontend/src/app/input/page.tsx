@@ -58,7 +58,7 @@ const Input = () => {
               </div>
             </button>
           </Link>
-          <Link href="#!">
+          <Link href="/aiscanner">
             <button className="w-full mt-5 py-5 px-6 bg-bluePrimary rounded-[24px]">
               <div className="flex items-center">
                 <div className="rounded-[16px] bg-white p-[13px]">
