@@ -1,3 +1,5 @@
+'use client'
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { RiArrowRightSLine } from "react-icons/ri";
@@ -6,8 +8,12 @@ import ExpenseSmall from "../../../../public/expense.png";
 import StatisticSmall from "../../../../public/statistic.png";
 import AIScanSmall from "../../../../public/file.png";
 import HistorySmall from "../../../../public/Transaction.png";
+import formatPrice from "../../../../utils/formatPrice";
+import { useGlobalContext } from '../../../../context/IncomeContext';
 
 const Features = () => {
+  const { totalIncome, totalExpense, setTotalIncome, setTotalExpense } = useGlobalContext();
+
   return (
     <div className="min-h-full flex flex-col pt-1 pb-7 px-7">
       <Link href="/income">
@@ -24,7 +30,7 @@ const Features = () => {
             </div>
             <div className="flex flex-col text-left ml-3 space-y-1">
               <p className="text-[16px]">Income</p>
-              <p className="text-[22px] font-semibold">Rp5.000.000</p>
+              <p className="text-[22px] font-semibold">{formatPrice(totalIncome)}</p>
             </div>
             <RiArrowRightSLine className="ml-auto text-white" size={38} />
           </div>
@@ -44,7 +50,7 @@ const Features = () => {
             </div>
             <div className="flex flex-col text-left ml-3 space-y-1">
               <p className="text-[16px]">Expense</p>
-              <p className="text-[22px] font-semibold">Rp500.000</p>
+              <p className="text-[22px] font-semibold">{formatPrice(totalExpense)}</p>
             </div>
             <RiArrowRightSLine className="ml-auto text-white" size={38} />
           </div>

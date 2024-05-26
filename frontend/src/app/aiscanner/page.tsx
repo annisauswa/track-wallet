@@ -17,7 +17,7 @@ export default function Transaction() {
       formData.append('image', file);
 
       try {
-        const response = await fetch('http://74.235.92.71:8000/extract', {
+        const response = await fetch(`http://localhost:8000/extract`, {
           method: 'POST',
           body: formData,
         });

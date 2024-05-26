@@ -10,11 +10,10 @@ import { NewIncomeType } from "../types/expanse";
 import { useEffect, useState } from "react";
 import { DocumentData, onSnapshot, QuerySnapshot } from "firebase/firestore";
 import FormatPrice from "../../../utils/formatPrice";
+import { useGlobalContext } from "../../../context/IncomeContext";
 
-const IncomeHistory = (
-  { total, setTotal }: { total: number; setTotal: React.Dispatch<React.SetStateAction<number>> }
-) => {
-
+const IncomeHistory = () => {
+  const {totalIncome, setTotalIncome} = useGlobalContext();
   const [incomes, setIncomes] = useState<NewIncomeType[]>([]);
   // const [total, setTotal] = useState(0);
 
@@ -37,7 +36,7 @@ const IncomeHistory = (
         (sum, income) => sum + income.price,
         0
       );
-      setTotal(totalPrice);
+      setTotalIncome(totalPrice);
     });
 
     return () => unsubscribe();

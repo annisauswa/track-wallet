@@ -7,9 +7,11 @@ import Navbar from "../components/navbar";
 import IncomeSmall from "../../../public/income.png";
 import IncomeHistory from "../components/income-history";
 import FormatPrice from "../../../utils/formatPrice";
+import { useGlobalContext } from "../../../context/IncomeContext";
 
 export default function Income() {
-  const [total, setTotal] = useState(0);
+  // const [total, setTotal] = useState(0);
+  const { totalIncome, setTotalIncome } = useGlobalContext();
   return (
     <div className="h-screen w-fit relative mx-auto flex flex-col items-center overflow-visible">
       <div className="w-[389px] min-h-full text-sm bg-yellowPrimary pt-10">
@@ -29,7 +31,7 @@ export default function Income() {
           </div>
           <div className="flex flex-col pt-1 pb-6 px-7 space-y-3">
             <h2 className="text-[18px]">Total Income</h2>
-            <p className="text-[30px] font-semibold">{FormatPrice(total)}</p>
+            <p className="text-[30px] font-semibold">{FormatPrice(totalIncome)}</p>
           </div>
           <div className="bg-blackPrimary py-5 pt-7 pb-80 space-y-5 text-white text-[16px] rounded-t-[40px]">
             <div className="px-8">
@@ -54,7 +56,7 @@ export default function Income() {
                 </button>
               </Link>
               </div>
-            <IncomeHistory total={total} setTotal={setTotal} />
+            <IncomeHistory />
           </div>
         </div>
         <div className="w-[389px] mx-auto absolute bottom-0">

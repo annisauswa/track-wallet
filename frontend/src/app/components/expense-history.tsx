@@ -11,10 +11,10 @@ import { useEffect, useState } from "react";
 import { DocumentData, onSnapshot, QuerySnapshot } from "firebase/firestore";
 import FormatPrice from "../../../utils/formatPrice";
 import { set } from "firebase/database";
+import { useGlobalContext } from "../../../context/IncomeContext";
 
-const ExpenseHistory = (
-  { total, setTotal }: { total: number; setTotal: React.Dispatch<React.SetStateAction<number>> }
-) => {
+const ExpenseHistory = () => {
+  const { totalExpense, setTotalExpense } = useGlobalContext();
 
   const [expanses, setExpanses] = useState<NewExpanseType[]>([]);
   // const [total, setTotal] = useState(0);
@@ -38,7 +38,7 @@ const ExpenseHistory = (
         (sum, expanse) => sum + parseInt(String(expanse.price)),
         0
       );
-      setTotal(totalPrice);
+      setTotalExpense(totalPrice);
     });
 
     return () => unsubscribe();
