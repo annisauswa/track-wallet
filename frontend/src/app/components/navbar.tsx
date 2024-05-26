@@ -45,7 +45,7 @@ export default function Navbar() {
             </p>
           </Link>
           <Link
-            href="#!"
+            href="/transaction"
             className="flex flex-col items-center"
             onClick={() => handleTabClick("transaction")}
           >
