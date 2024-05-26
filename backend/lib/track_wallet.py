@@ -59,30 +59,30 @@ def predict_text(text):
 
 
 # AI SCAN
-with open(".\settings.json", "r") as jsonfile:
-    settings = json.load(jsonfile)
-    print(settings)
-region = settings["ACCOUNT_REGION"]
-key = settings["ACCOUNT_KEY"]
-credentials = CognitiveServicesCredentials(key)
-client = ComputerVisionClient(
-    endpoint="https://ocr-track-wallet.cognitiveservices.azure.com/",
-    credentials=credentials
-)
+# with open(".\settings.json", "r") as jsonfile:
+#     settings = json.load(jsonfile)
+#     print(settings)
+# region = settings["ACCOUNT_REGION"]
+# key = settings["ACCOUNT_KEY"]
+# credentials = CognitiveServicesCredentials(key)
+# client = ComputerVisionClient(
+#     endpoint="https://ocr-track-wallet.cognitiveservices.azure.com/",
+#     credentials=credentials
+# )
 
-def extract_text_from_image(image):
-    rawHttpResponse = client.read_in_stream(image, language="id", raw=True)
-    operation_location = rawHttpResponse.headers["Operation-Location"]
-    id_location = len(operation_location) - 36
-    operation_id = operation_location[id_location:]
+# def extract_text_from_image(image):
+#     rawHttpResponse = client.read_in_stream(image, language="id", raw=True)
+#     operation_location = rawHttpResponse.headers["Operation-Location"]
+#     id_location = len(operation_location) - 36
+#     operation_id = operation_location[id_location:]
 
-    while True:
-        result = client.get_read_result(operation_id)
-        if result.status not in ['notStarted', 'running']:
-            break
-        time.sleep(1)
+#     while True:
+#         result = client.get_read_result(operation_id)
+#         if result.status not in ['notStarted', 'running']:
+#             break
+#         time.sleep(1)
 
-    return result
+#     return result
 
 def extract_text_from_receipt(result):
     receipt_text = ''
