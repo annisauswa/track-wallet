@@ -10,7 +10,7 @@ import HistorySmall from "../../../../public/Transaction.png";
 const Features = () => {
   return (
     <div className="min-h-full flex flex-col pt-1 pb-7 px-7">
-      <Link href="#!">
+      <Link href="/income">
         <button className="w-full py-5 px-6 bg-yellowPrimary rounded-[24px]">
           <div className="flex items-center">
             <div className="rounded-[16px] bg-white p-[13px]">
@@ -30,7 +30,7 @@ const Features = () => {
           </div>
         </button>
       </Link>
-      <Link href="#!">
+      <Link href="/expense">
         <button className="w-full mt-5 py-5 px-6 bg-redPrimary rounded-[24px]">
           <div className="flex items-center">
             <div className="rounded-[16px] bg-white p-[13px]">
@@ -52,7 +52,7 @@ const Features = () => {
       </Link>
       <p className="mt-7 mb-4 text-[18px] font-medium text-left">Features</p>
       <div className="flex flex-wrap gap-x-8 gap-y-5">
-        <Link href="#!" className="text-center">
+        <Link href="/income" className="text-center">
           <button className="flex flex-col items-center justify-center rounded-[16px] bg-white p-[13px]">
             <Image
               src={IncomeSmall}
@@ -64,7 +64,7 @@ const Features = () => {
           </button>
           <p className="pt-1.5">Income</p>
         </Link>
-        <Link href="#!" className="text-center">
+        <Link href="/expense" className="text-center">
           <button className="flex flex-col items-center justify-center rounded-[16px] bg-white p-[13px]">
             <Image
               src={ExpenseSmall}
@@ -88,7 +88,7 @@ const Features = () => {
           </button>
           <p className="pt-1.5">Statistic</p>
         </Link>
-        <Link href="#!" className="text-center">
+        <Link href="aiscanner" className="text-center">
           <button className="flex flex-col items-center justify-center rounded-[16px] bg-white py-[15px] px-[16px]">
             <Image
               src={AIScanSmall}
@@ -100,7 +100,7 @@ const Features = () => {
           </button>
           <p className="pt-1.5">AI Scan</p>
         </Link>
-        <Link href="#!" className="text-center">
+        <Link href="/transaction" className="text-center">
           <button className="flex flex-col items-center justify-center rounded-[16px] bg-white py-[17px] px-[13px]">
             <Image
               src={HistorySmall}

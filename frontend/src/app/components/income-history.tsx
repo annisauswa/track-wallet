@@ -9,11 +9,14 @@ import { incomeCollection } from "../lib/controller";
 import { NewIncomeType } from "../types/expanse";
 import { useEffect, useState } from "react";
 import { DocumentData, onSnapshot, QuerySnapshot } from "firebase/firestore";
+import FormatPrice from "../../../utils/formatPrice";
 
-const IncomeHistory = () => {
+const IncomeHistory = (
+  { total, setTotal }: { total: number; setTotal: React.Dispatch<React.SetStateAction<number>> }
+) => {
 
   const [incomes, setIncomes] = useState<NewIncomeType[]>([]);
-  const [total, setTotal] = useState(0);
+  // const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(incomeCollection, (snapshot: QuerySnapshot<DocumentData>) => {
@@ -39,6 +42,7 @@ const IncomeHistory = () => {
 
     return () => unsubscribe();
   }, []);
+  console.log(incomes)
 
   const categoryIcons: { [key: string]: StaticImageData } = {
     salary: Salary,
@@ -95,21 +99,21 @@ const IncomeHistory = () => {
             </div>
             <div className="text-right right-0">
               <p className="text-[14px] text-[#FD3C4A] mb-1.5">
-                {income.price}
+                {FormatPrice(income.price)}
               </p>
               <p className="text-[#91919F] text-[12px]">{income.date}</p>
             </div>
           </Link>
         ))}
       </div>
-        {incomes.length <1 ? (
+        {/* {incomes.length <1 ? (
           '0'
         ) : (
           <div>
             <span>Total</span>
             <span>${total}</span>
           </div>
-        )}
+        )} */}
 
     </div>
   );

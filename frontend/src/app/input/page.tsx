@@ -70,7 +70,7 @@ const Input = () => {
                     className="w-6"
                   />
                 </div>
-                <p className="text-[16px] ml-3">AI Scan</p>
+                <p className="text-[18px] ml-3">AI Scan</p>
                 <RiArrowRightSLine className="ml-auto text-white" size={38} />
               </div>
             </button>

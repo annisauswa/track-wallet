@@ -8,7 +8,7 @@ const Header = () => {
     <div className="flex flex-col pt-10 pb-6 px-7">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center space-x-3">
-          <Link href="#!">
+          <Link href="/setting-profile">
             <Image
               src={Person}
               alt="Profile Picture"
@@ -19,7 +19,7 @@ const Header = () => {
           </Link>
           <p className="ml-3 font-medium text-[18px]">Hi, John Doe</p>
         </div>
-        <Link href="#!">
+        <Link href="/notification">
           <button className="ml-4">
             <IoNotifications size={29} />
           </button>

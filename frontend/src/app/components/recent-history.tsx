@@ -44,11 +44,11 @@ const RecentHistory = () => {
   };
 
   return (
-    <div className="w-full px-7 pb-7">
+    <div className="w-full px-7 pb-28">
       <div className="w-full flex flex-row justify-between items-center pb-4">
         <h1 className="text-[18px] font-medium">Recent History</h1>
         <Link
-          href="#!"
+          href="/transaction"
           className="rounded-full py-1.5 px-4 bg-white text-blackPrimary font-medium text-[13px]"
         >
           <button>See All</button>

@@ -3,9 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { RiArrowRightSLine } from "react-icons/ri";
-import IncomeIcon from "../../../public/income.png";
-import ExpenseIcon from "../../../public/expense.png";
-import AIScanIcon from "../../../public/file.png";
 import Navbar from "../components/navbar";
 import { useState } from "react";
 import { collection, addDoc } from 'firebase/firestore';
@@ -29,12 +26,13 @@ function AddIncome() {
       date,
     });
     console.log("successfully added a new hotel");
+    window.location.href = "/income";
   };
 
   return (
     <div className="h-fit w-fit mx-auto flex flex-col items-center relative">
       <div className="absolute z-10 h-40 w-full rounded-b-[70px] bg-greenPrimary"></div>
-      <div className="w-[389px] z-5 min-h-screen text-sm bg-blackPrimary pt-10">
+      <div className="w-[389px] z-5 pb-[150px] min-h-screen text-sm bg-blackPrimary pt-10">
         <div className="w-full px-7">
           <div className="w-full flex flex-row items-center justify-start pb-7">
             <div className="flex z-30 flex-row items-center justify-start">
@@ -86,7 +84,7 @@ function AddIncome() {
               </div>
               <div className="bg-gray-100 z-30 text-black mb-2 p-5 rounded-[11px]">
                 <label htmlFor="price" className="text-black mb-2">
-                  Price:
+                  Amount:
                 </label>
                 <input
                   onChange={(e) => setPrice(e.target.value)}
@@ -104,8 +102,8 @@ function AddIncome() {
                   Date:
                 </label>
                 <input
-                  onChange={(e) => setDate(e.target.value)}
-                  type="text"
+                  onChange={(e) => setDate(String(e.target.value))}
+                  type="date"
                   id="date"
                   name="date"
                   className="w-full text-black border-b border-black bg-transparent p-2 focus:outline-none focus:ring-0"
@@ -114,7 +112,7 @@ function AddIncome() {
               </div>
               <button
                 type="submit"
-                className="mt-10 py-2 h-[45px] bg-yellowPrimary text-white text-base rounded-[10px]"
+                className="mt-10 mb-20 py-2 h-[45px] bg-yellowPrimary text-white text-base rounded-[10px]"
               >
                 Create
               </button>
