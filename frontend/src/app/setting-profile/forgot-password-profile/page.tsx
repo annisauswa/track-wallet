@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
-import { auth } from '../../../firebase';
+import { auth } from '../../../../firebase-auth';
 import { sendPasswordResetEmail } from "firebase/auth";
 import Link from "next/link";
 import Image from "next/image"
 import { IoIosArrowBack } from "react-icons/io";
-import Logo from "../../../../../public/Logo M.svg";
+import Logo from "../../../../public/Logo M.svg";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -20,7 +20,7 @@ export default function ForgotPassword() {
       <div className="max-w-[389px] min-h-screen w-full items-center text-sm bg-blackPrimary py-8 px-7">
 
         <div className="flex justify-between w-full">
-          <Link href="/auth/setting-profile">
+          <Link href="/setting-profile">
             <IoIosArrowBack className="text-white w-8 h-8" />
           </Link>
 
@@ -56,15 +56,6 @@ export default function ForgotPassword() {
             className="block w-full px-4 py-3 text-lg font-semibold text-blackPrimary bg-yellowPrimary rounded-lg focus:outline-none focus:ring">
               Send Code
             </button>
-        </div>
-          
-        <div className='flex mt-auto justify-center items-center'>
-          <p className="mt-8 text-base text-white">
-            Remember Password?{" "}
-            <Link href="/auth/login" className="hover:underline font-bold">
-              Log in
-            </Link>
-          </p>
         </div>
 
         </div>

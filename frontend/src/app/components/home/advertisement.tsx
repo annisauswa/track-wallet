@@ -1,5 +1,7 @@
 "use client";
 
+import { signOut, useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,6 +21,13 @@ const Advertisement = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+  const session = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/auth/login');
+    },
+  });
 
   return (
     <div className="min-h-full px-7 pb-7">

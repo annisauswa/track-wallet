@@ -2,7 +2,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { auth } from '../../firebase';
+import { auth } from '../../../../firebase-auth';
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosArrowBack } from "react-icons/io";
@@ -14,11 +14,18 @@ export default function Signup () {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordAgain, setPasswordAgain] = useState('');
+    const router = useRouter();
 
-    const signup = () => {
-        createUserWithEmailAndPassword(auth, email, password);
-      };
-
+      const handleLogin = (e: { preventDefault: () => void; }) =>{
+        e.preventDefault();
+    
+        createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        router.push("/")
+        console.log(user);
+      })
+      }
   return (
     
     <div className="min-h-screen w-full flex flex-col items-center">
@@ -40,7 +47,7 @@ export default function Signup () {
         </p>
       </div>
 
-      <div className="w-full max-w-sm">
+      <form onSubmit={handleLogin} className="w-full max-w-sm">
         <div className="mb-6">
           <label htmlFor="email" className="block mb-2 text-base text-white">
             Email
@@ -50,7 +57,7 @@ export default function Signup () {
           id='email'
           type="email"
           placeholder="username@gmail.com"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={e => setEmail(e.target.value)}
           required
           className="block w-full px-4 py-3 text-white placeholder-stone-400 bg-blackPrimary text-base border border-white rounded-lg focus:outline-none focus:ring focus:ring-yellowPrimary"/>
         </div>
@@ -64,7 +71,7 @@ export default function Signup () {
           id="password"
           type="password"
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={e => setPassword(e.target.value)}
           required
           className="block w-full px-4 py-3 text-white placeholder-stone-400 bg-blackPrimary text-base border border-white rounded-lg focus:outline-none focus:ring focus:ring-yellowPrimary"/>
         </div>
@@ -78,18 +85,18 @@ export default function Signup () {
           id='passwordAgain'
           type="password"
           placeholder="Confirm Password"
-          onChange={(e) => setPasswordAgain(e.target.value)}
+          onChange={e => setPasswordAgain(e.target.value)}
           required
           className="block w-full px-4 py-3 text-white placeholder-stone-400 bg-blackPrimary text-base border border-white rounded-lg focus:outline-none focus:ring focus:ring-yellowPrimary"/>
         </div>
 
         <button 
         disabled={(!email || !password || !passwordAgain) || (password !== passwordAgain)}
-        onClick={() => signup()}
+        type='submit'
         className="block w-full px-4 py-3 text-lg font-semibold text-blackPrimary bg-yellowPrimary rounded-lg focus:outline-none focus:ring">
           Sign Up
         </button>
-      </div>
+      </form>
 
       <div className="w-full flex justify-between items-center mt-8 mb-6">
         <div className="bg-white h-[1px] w-[79px]"></div>

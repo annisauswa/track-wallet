@@ -42,7 +42,7 @@ export default function Setting() {
                     </svg>
                 </div>
 
-                <div className='text-black flex items-center mx-4'>{session?.data?.user?.email }</div>
+                <div className='text-black flex items-center mx-4'>{session?.data?.user?.email}</div>
 
             </div>
         </div>
@@ -55,26 +55,26 @@ export default function Setting() {
                     </h2>
 
                     <div className='flex items-center justify-between'>
-                        <Link href="/auth/setting-profile/profile">
+                        <Link href="/setting-profile/profile">
                             <h2 className='text-blackPrimary font-semibold'>
                                 Edit Profile
                             </h2>
                         </Link>
 
-                        <Link href="/auth/setting-profile/profile" className='flex items-center'>
+                        <Link href="/setting-profile/profile" className='flex items-center'>
                             <IoIosArrowForward className="text-black w-6 h-6" />
                         </Link>
                     </div>
 
                     <div className='flex items-center justify-between'>
-                        <Link href="/auth/setting-profile/forgot-password-profile">
+                        <Link href="/setting-profile/forgot-password-profile">
                             <h2 className='text-blackPrimary font-semibold'>
                                 Change Password
                             </h2>
                         </Link>
                         
 
-                        <Link href="/auth/setting-profile/forgot-password-profile" className='flex items-center'>
+                        <Link href="/setting-profile/forgot-password-profile" className='flex items-center'>
                             <IoIosArrowForward className="text-black w-6 h-6" />
                         </Link>
                     </div>

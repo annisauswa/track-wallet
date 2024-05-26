@@ -109,7 +109,7 @@ export default function Navbar() {
             </p>
           </Link>
           <Link
-            href="#!"
+            href="setting-profile"
             className="flex flex-col items-center"
             onClick={() => handleTabClick("settings")}
           >
