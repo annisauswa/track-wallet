@@ -8,38 +8,27 @@ import ExpenseIcon from "../../../public/expense.png";
 import AIScanIcon from "../../../public/file.png";
 import Navbar from "../components/navbar";
 import { useState } from "react";
-import { db } from "../../../firebase-database";
 import { collection, addDoc } from 'firebase/firestore';
+import { addExpanse } from "../lib/controller";
 
-const AddExpanse = () => {
-  const [items, setItems] = useState([
-    {
-      name: 'play',
-      description: 'play football',
-      category: 'playing',
-      price: "5000",
-      date: "10-02-03"
-    },
-  ]);
-  const [newItem, setNewItem] = useState({ name: '', description: '', category: '', price: '', date: '' });
+function AddExpanse() {
+  
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("")
+  const [category, setCategory] = useState("shooping")
+  const [price, setPrice] = useState("")
+  const [date, setDate] = useState("")
 
-  const additem = async (e: { preventDefault: () => void; }) => {
+  const addNewExpanse = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (newItem.name !== '' && newItem.description !== '' && newItem.category !== '' && newItem.price !== '' && newItem.date !== '') {
-      setItems([...items, newItem]);
-      try {
-        const docRef = await addDoc(collection(db, 'sure'), {
-          name: newItem.name.trim(),
-          description: newItem.description,
-          category: newItem.category,
-          price: newItem.price,
-          date: newItem.date,
-        });
-      } catch (error) {
-        console.error("Error adding document: ", error);
-      }
-    }
+    addExpanse({
+      title,
+      description,
+      category,
+      price: parseFloat(price),
+      date,
+    });
+    console.log("successfully added a new hotel");
   };
 
   return (
@@ -49,7 +38,7 @@ const AddExpanse = () => {
         <div className="w-full px-7">
           <div className="w-full flex flex-row items-center justify-start pb-7">
             <div className="flex z-30 flex-row items-center justify-start">
-              <Link href="/">
+              <Link href="/expense">
                 <RiArrowRightSLine className="ml-auto text-white rotate-180 left-0" size={38} />
               </Link>
             </div>
@@ -58,14 +47,13 @@ const AddExpanse = () => {
             </h1>
           </div>
           <div>
-            <form onSubmit={additem} className="flex flex-col space-y-4">
+            <form onSubmit={(e) => addNewExpanse(e)} className="flex flex-col space-y-4">
               <div className="bg-gray-100 z-30 text-black mb-2 p-5 rounded-[11px]">
                 <label htmlFor="title" className="text-black mb-2">
                   Title:
                 </label>
                 <input
-                  value={newItem.name}
-                  onChange={e => setNewItem({ ...newItem, name: e.target.value })}
+                  onChange={(e) => setTitle(e.target.value)}
                   type="text"
                   id="title"
                   name="title"
@@ -78,8 +66,7 @@ const AddExpanse = () => {
                   Description:
                 </label>
                 <input
-                  value={newItem.description}
-                  onChange={e => setNewItem({ ...newItem, description: e.target.value })}
+                 onChange={(e) => setDescription(e.target.value)}
                   type="text"
                   id="description"
                   name="description"
@@ -91,23 +78,18 @@ const AddExpanse = () => {
                 <label htmlFor="category" className="text-black mb-2">
                   Category:
                 </label>
-                <input
-                  value={newItem.category}
-                  onChange={e => setNewItem({ ...newItem, category: e.target.value })}
-                  type="text"
-                  id="category"
-                  name="category"
-                  className="w-full text-black border-b border-black bg-transparent p-2 focus:outline-none focus:ring-0"
-                  placeholder=""
-                />
-              </div>
+                <select className="w-full text-black border-b border-black bg-transparent p-2 focus:outline-none focus:ring-0" value={category} onChange={(e) => setCategory(e.target.value)}>
+                  <option value="food">food</option>
+                  <option value="shooping">shooping</option>
+                  <option value="subscription">subscription</option>
+               </select>
+               </div>
               <div className="bg-gray-100 z-30 text-black mb-2 p-5 rounded-[11px]">
                 <label htmlFor="price" className="text-black mb-2">
                   Price:
                 </label>
                 <input
-                  value={newItem.price}
-                  onChange={e => setNewItem({ ...newItem, price: e.target.value })}
+                  onChange={(e) => setPrice(e.target.value)}
                   type="number"
                   min="1"
                   step="any"
@@ -122,8 +104,7 @@ const AddExpanse = () => {
                   Date:
                 </label>
                 <input
-                  value={newItem.date}
-                  onChange={e => setNewItem({ ...newItem, date: e.target.value })}
+                  onChange={(e) => setDate(e.target.value)}
                   type="text"
                   id="date"
                   name="date"
@@ -132,14 +113,13 @@ const AddExpanse = () => {
                 />
               </div>
               <button
-                onClick={additem}
                 type="submit"
                 className="mt-10 py-2 h-[45px] bg-yellowPrimary text-white text-base rounded-[10px]"
               >
                 Create
               </button>
             </form>
-            <ul>
+            {/* <ul>
               {items.map((item, id) => (
                 <li key={id}>
                   <div>
@@ -151,7 +131,7 @@ const AddExpanse = () => {
                   </div>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
         <div className="w-[389px] mx-auto absolute bottom-0">

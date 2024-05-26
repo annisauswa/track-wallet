@@ -2,8 +2,8 @@
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { auth } from "../../../../firebase-auth"
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth, provider } from "../../../../firebase-auth"
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosArrowBack } from "react-icons/io";
@@ -30,6 +30,10 @@ const LogIn = () => {
   .catch((error) => {
     setError(true);
   });
+  }
+
+  const loginwithgoogle = () => {
+      signInWithPopup(auth, provider)
   }
   return (
   
@@ -118,7 +122,9 @@ const LogIn = () => {
           <button className="border border-white py-4 px-7 bg-blackPrimary rounded-lg">
             <FcGoogle className="w-7 h-7" />
           </button>
-          <button className="border border-white py-4 px-7 bg-blackPrimary rounded-lg">
+          <button 
+          onClick={loginwithgoogle}
+          className="border border-white py-4 px-7 bg-blackPrimary rounded-lg">
             <FaApple className="text-white w-7 h-7" />
           </button>
         </div>
