@@ -7,12 +7,12 @@ import ExpenseHistory from "../components/expense-history";
 
 export default function Expense() {
   return (
-    <div className="h-fit w-fit relative mx-auto flex flex-col items-center overflow-visible">
+    <div className="h-screen w-fit relative mx-auto flex flex-col items-center overflow-visible">
       <div className="w-[389px] min-h-full text-sm bg-redPrimary pt-10">
         <div className="w-full z-40">
           <div className="w-full flex flex-row items-center justify-start px-7 pb-7 z-40">
             <div className="flex flex-row items-center justify-start">
-              <Link href="/">
+              <Link href="/input">
                 <RiArrowRightSLine
                   className="ml-auto text-white rotate-180 left-0"
                   size={36}
@@ -27,7 +27,7 @@ export default function Expense() {
             <h2 className="text-[18px]">Total Expense</h2>
             <p className="text-[30px] font-semibold">Rp500.000</p>
           </div>
-          <div className="bg-blackPrimary py-5 pt-7 pb-14 space-y-5 text-white text-[16px] rounded-t-[40px]">
+          <div className="bg-blackPrimary py-5 pt-7 pb-80 space-y-5 text-white text-[16px] rounded-t-[40px]">
             <div className="px-8">
               <Link href="/add-expanse">
                 <button className="w-full py-4 px-5 bg-redPrimary rounded-[24px]">
