@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="w-full flex flex-row justify-between">
         <div className="flex space-x-9">
           <Link
-            href="#!"
+            href="/"
             className="flex flex-col items-center"
             onClick={() => handleTabClick("home")}
           >
@@ -72,7 +72,7 @@ export default function Navbar() {
           </Link>
         </div>
         <Link
-          href="#!"
+          href="/input"
           className="relative bottom-11 flex flex-col items-center rounded-full p-4 bg-yellowPrimary"
         >
           <Image
@@ -109,7 +109,7 @@ export default function Navbar() {
             </p>
           </Link>
           <Link
-            href="setting-profile"
+            href="/setting-profile"
             className="flex flex-col items-center"
             onClick={() => handleTabClick("settings")}
           >
