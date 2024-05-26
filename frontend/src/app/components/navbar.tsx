@@ -21,7 +21,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="min-w-full flex flex-row items-center justify-center bottom-0 bg-white rounded-t-[40px] z-20 px-7 py-5">
+    <div className="w-[389px] fixed flex flex-row items-center justify-center bottom-0 bg-white rounded-t-[40px] z-20 px-7 py-5">
       <div className="w-full flex flex-row justify-between">
         <div className="flex space-x-9">
           <Link
