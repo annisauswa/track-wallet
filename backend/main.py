@@ -53,8 +53,8 @@ async def predict_category(data: str):
 with open(".\settings.json", "r") as jsonfile:
     settings = json.load(jsonfile)
     print(settings)
-region = settings["ACCOUNT_REGION"]
-key = settings["ACCOUNT_KEY"]
+region = 'eastus'
+key = "4f47c6853d074715925ff2c1c957fe52"
 credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionClient(
     endpoint="https://ocr-track-wallet.cognitiveservices.azure.com/",
