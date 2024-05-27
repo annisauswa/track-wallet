@@ -8,8 +8,8 @@ export default function Transaction() {
   return (
     <div className="h-screen w-fit mx-auto flex flex-col items-center">
       <div className="w-[389px] text-sm bg-blackPrimary pt-10">
-        <div className="w-full px-7 pb-20">
-          <div className="w-full flex flex-row items-center justify-start pb-9">
+        <div className="w-full pb-20">
+          <div className="w-full px-7 flex flex-row items-center justify-start pb-9">
             <div className="flex flex-row items-center justify-start">
               <Link href="/">
                 <RiArrowRightSLine

@@ -3,6 +3,7 @@ import Image from "next/image";
 import ShoppingBag from "../../../public/shopping-bag.png";
 import Bill from "../../../public/recurring-bill.png";
 import Restaurant from "../../../public/restaurant.png";
+import ExpenseHistory from "./expense-history";
 
 const RecentHistory = () => {
   const histories = [
@@ -44,54 +45,21 @@ const RecentHistory = () => {
   };
 
   return (
-    <div className="w-full px-7 pb-28">
-      <div className="w-full flex flex-row justify-between items-center pb-4">
+    <div className="w-full pb-28">
+      <div className="w-full px-7 flex flex-row justify-center items-center pb-4">
         <h1 className="text-[18px] font-medium">Recent History</h1>
-        <Link
+        
+      </div>
+      <ExpenseHistory />
+
+      <div className="flex justify-end px-7">
+      <Link
           href="/transaction"
           className="rounded-full py-1.5 px-4 bg-white text-blackPrimary font-medium text-[13px]"
         >
           <button>See All</button>
         </Link>
-      </div>
-      <div className="flex flex-col space-y-5">
-        {histories.map((history, index) => (
-          <Link
-            href={history.link}
-            key={index}
-            className="bg-white py-4 px-5 flex items-center justify-between rounded-[24px]"
-          >
-            <div className="flex items-center space-x-4">
-              <div
-                style={{
-                  backgroundColor: getCategoryBackgroundColor(history.category),
-                }}
-                className="p-3 rounded-[15px]"
-              >
-                <Image
-                  src={history.img}
-                  alt="History icon"
-                  width={31}
-                  height={32}
-                  className="w-9"
-                />
-              </div>
-              <div>
-                <p className="text-[16px] text-blackPrimary mb-1.5">
-                  {history.title}
-                </p>
-                <p className="text-[#91919F] text-[14px]">{history.category}</p>
-              </div>
-            </div>
-            <div className="text-right right-0">
-              <p className="text-[14px] text-[#FD3C4A] mb-1.5">
-                {history.price}
-              </p>
-              <p className="text-[#91919F] text-[12px]">{history.date}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
+        </div>
     </div>
   );
 };
