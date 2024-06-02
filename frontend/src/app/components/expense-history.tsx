@@ -72,7 +72,7 @@ const ExpenseHistory = () => {
   return (
     <div className="w-full px-7 pb-7">
       <div className="w-full flex flex-row justify-between items-center pb-4">
-        <h1 className="text-[16px]">Expense History</h1>
+        <h1 className="text-[18px] font-medium">Expense History</h1>
       </div>
       <div className="flex flex-col space-y-4">
         {expanses.map((expanse) => (
@@ -90,7 +90,7 @@ const ExpenseHistory = () => {
               >
                 <Image
                   src={categoryIcons[expanse.category]} // Fallback to Restaurant icon if category not found
-                  alt="History icon"
+                  alt="Icon"
                   width={31}
                   height={32}
                   className="w-8"

@@ -46,20 +46,15 @@ const RecentHistory = () => {
 
   return (
     <div className="w-full pb-28">
-      <div className="w-full px-7 flex flex-row justify-center items-center pb-4">
-        <h1 className="text-[18px] font-medium">Recent History</h1>
-        
-      </div>
       <ExpenseHistory />
-
-      <div className="flex justify-end px-7">
-      <Link
+      {/* <div className="flex justify-end px-7">
+        <Link
           href="/transaction"
           className="rounded-full py-1.5 px-4 bg-white text-blackPrimary font-medium text-[13px]"
         >
           <button>See All</button>
         </Link>
-        </div>
+      </div> */}
     </div>
   );
 };

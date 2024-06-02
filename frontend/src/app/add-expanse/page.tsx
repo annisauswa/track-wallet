@@ -1,11 +1,7 @@
 'use client';
 
-import Image from "next/image";
 import Link from "next/link";
 import { RiArrowRightSLine } from "react-icons/ri";
-import IncomeIcon from "../../../public/income.png";
-import ExpenseIcon from "../../../public/expense.png";
-import AIScanIcon from "../../../public/file.png";
 import Navbar from "../components/navbar";
 import { useState, useEffect } from "react";
 import { collection, addDoc } from 'firebase/firestore';
@@ -67,8 +63,8 @@ function AddExpanse() {
   return (
     <div className="h-fit w-fit mx-auto flex flex-col items-center relative">
       <div className="absolute z-10 h-40 w-full rounded-b-[70px] bg-redPrimary"></div>
-      <div className="w-[389px] z-5 min-h-screen text-sm bg-blackPrimary pt-10">
-        <div className="w-full px-7">
+      <div className="w-[389px] z-5 h-screen text-sm bg-blackPrimary pt-10">
+        <div className="w-full px-7 pb-24">
           <div className="w-full flex flex-row items-center justify-start pb-7">
             <div className="flex z-30 flex-row items-center justify-start">
               <Link href="/expense">
@@ -76,7 +72,7 @@ function AddExpanse() {
               </Link>
             </div>
             <h1 className="relative z-30 mx-auto text-center font-bold text-[20px] -translate-x-3">
-              Add Expanse
+              Add Expense
             </h1>
           </div>
           <div>

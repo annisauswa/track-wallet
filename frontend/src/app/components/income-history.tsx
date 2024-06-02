@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
@@ -13,35 +13,38 @@ import FormatPrice from "../../../utils/formatPrice";
 import { useGlobalContext } from "../../../context/IncomeContext";
 
 const IncomeHistory = () => {
-  const {totalIncome, setTotalIncome} = useGlobalContext();
+  const { totalIncome, setTotalIncome } = useGlobalContext();
   const [incomes, setIncomes] = useState<NewIncomeType[]>([]);
   // const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(incomeCollection, (snapshot: QuerySnapshot<DocumentData>) => {
-      const newIncomes: NewIncomeType[] = snapshot.docs.map((doc) => {
-        const data = doc.data();
-        return {
-          id: doc.id,
-          title: data.title,
-          description: data.description,
-          category: data.category,
-          price: data.price,
-          date: data.date,
-        };
-      });
-      setIncomes(newIncomes);
+    const unsubscribe = onSnapshot(
+      incomeCollection,
+      (snapshot: QuerySnapshot<DocumentData>) => {
+        const newIncomes: NewIncomeType[] = snapshot.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            title: data.title,
+            description: data.description,
+            category: data.category,
+            price: data.price,
+            date: data.date,
+          };
+        });
+        setIncomes(newIncomes);
 
-      const totalPrice = newIncomes.reduce(
-        (sum, income) => sum + income.price,
-        0
-      );
-      setTotalIncome(totalPrice);
-    });
+        const totalPrice = newIncomes.reduce(
+          (sum, income) => sum + income.price,
+          0
+        );
+        setTotalIncome(totalPrice);
+      }
+    );
 
     return () => unsubscribe();
   }, []);
-  console.log(incomes)
+  console.log(incomes);
 
   const categoryIcons: { [key: string]: StaticImageData } = {
     salary: Salary,
@@ -51,19 +54,19 @@ const IncomeHistory = () => {
 
   const getCategoryBackgroundColor = (category: string) => {
     switch (category) {
-      case 'salary':
-        return '#CFFAEA';
-      case 'passiveincome':
-        return '#E5EFFF';
-      case 'others':
-        return '#B8B8B8';
+      case "salary":
+        return "#CFFAEA";
+      case "passiveincome":
+        return "#E5EFFF";
+      case "others":
+        return "#B8B8B8";
       default:
-        return '#FFFFFF';
+        return "#FFFFFF";
     }
   };
 
   return (
-<div className="w-full px-7 pb-7">
+    <div className="w-full px-7 pb-7">
       <div className="w-full flex flex-row justify-between items-center pb-4">
         <h1 className="text-[16px]">Income History</h1>
       </div>
@@ -105,7 +108,7 @@ const IncomeHistory = () => {
           </Link>
         ))}
       </div>
-        {/* {incomes.length <1 ? (
+      {/* {incomes.length <1 ? (
           '0'
         ) : (
           <div>
@@ -113,12 +116,8 @@ const IncomeHistory = () => {
             <span>${total}</span>
           </div>
         )} */}
-
     </div>
   );
 };
 
 export default IncomeHistory;
-
-
-

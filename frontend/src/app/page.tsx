@@ -7,8 +7,8 @@ import RecentHistory from "./components/recent-history";
 
 export default function Home() {
   return (
-    <main className="min-h-full w-full flex flex-col items-center">
-      <div className="max-w-[389px] items-center text-sm bg-blackPrimary">
+    <main className="min-h-full w-full flex flex-col items-center justify-center">
+      <div className="w-[389px] items-center text-sm bg-blackPrimary">
         <Header />
         <Features />
         <Advertisement />
