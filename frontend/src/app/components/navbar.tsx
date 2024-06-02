@@ -1,33 +1,53 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import HomeIcon from "../../../public/home.png";
+import AddIcon from "../../../public/add-icon.png";
 import TransactionIcon from "../../../public/transaction-nav.png";
-import StatisticIcon from "../../../public/statistic-nav.png";
 import SettingIcon from "../../../public/settings.png";
-import AddIcon from "../../../public/add.png";
 import HomeActiveIcon from "../../../public/home-active.png";
+import AddActiveIcon from "../../../public/add-active.png";
 import TransactionActiveIcon from "../../../public/Transaction-active.png";
-import StatisticActiveIcon from "../../../public/statistic-active.png";
 import SettingActiveIcon from "../../../public/settings-active.png";
 
 export default function Navbar() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [activeNav, setActiveNav] = useState<string>("home");
 
-  const handleTabClick = (tabName: string) => {
+  useEffect(() => {
+    switch (pathname) {
+      case "/":
+        setActiveNav("home");
+        break;
+      case "/input":
+        setActiveNav("add");
+        break;
+      case "/transaction":
+        setActiveNav("transaction");
+        break;
+      case "/setting-profile":
+        setActiveNav("settings");
+        break;
+      default:
+        setActiveNav("");
+    }
+  }, [pathname]);
+
+  const handleTabClick = (tabName: string, href: string) => {
     setActiveNav(tabName);
+    router.push(href);
   };
 
   return (
-    <div className="w-[389px] fixed flex flex-row items-center justify-center bottom-0 bg-white rounded-t-[40px] z-20 px-7 py-5">
+    <div className="w-[389px] fixed flex flex-row items-center justify-center bottom-0 bg-white rounded-t-[40px] z-40 px-7 py-4">
       <div className="w-full flex flex-row justify-between">
-        <div className="flex space-x-9">
-          <Link
-            href="/"
+        <div className="w-full flex justify-between items-end">
+          <div
             className="flex flex-col items-center"
-            onClick={() => handleTabClick("home")}
+            onClick={() => handleTabClick("home", "/")}
           >
             <Image
               src={activeNav === "home" ? HomeActiveIcon : HomeIcon}
@@ -43,11 +63,29 @@ export default function Navbar() {
             >
               Home
             </p>
-          </Link>
-          <Link
-            href="/transaction"
+          </div>
+          <div
             className="flex flex-col items-center"
-            onClick={() => handleTabClick("transaction")}
+            onClick={() => handleTabClick("add", "/input")}
+          >
+            <Image
+              src={activeNav === "add" ? AddActiveIcon : AddIcon}
+              alt="Add icon"
+              width={23}
+              height={23}
+              className="w-7"
+            />
+            <p
+              className={`text-[11px] ${
+                activeNav === "add" ? "text-yellowPrimary" : "text-[#777777]"
+              } `}
+            >
+              Add
+            </p>
+          </div>
+          <div
+            className="flex flex-col items-center"
+            onClick={() => handleTabClick("transaction", "/transaction")}
           >
             <Image
               src={
@@ -69,49 +107,10 @@ export default function Navbar() {
             >
               Transaction
             </p>
-          </Link>
-        </div>
-        <Link
-          href="/input"
-          className="relative bottom-11 flex flex-col items-center rounded-full p-4 bg-yellowPrimary"
-        >
-          <Image
-            src={AddIcon}
-            alt="Add icon"
-            width={23}
-            height={23}
-            className="w-7"
-          />
-        </Link>
-        <div className="flex space-x-9">
-          <Link
-            href="#!"
+          </div>
+          <div
             className="flex flex-col items-center"
-            onClick={() => handleTabClick("statistic")}
-          >
-            <Image
-              src={
-                activeNav === "statistic" ? StatisticActiveIcon : StatisticIcon
-              }
-              alt="Statistic icon"
-              width={23}
-              height={23}
-              className="pt-1 w-7 h-6"
-            />
-            <p
-              className={`text-[11px] ${
-                activeNav === "statistic"
-                  ? "text-yellowPrimary"
-                  : "text-[#777777]"
-              } `}
-            >
-              Statistic
-            </p>
-          </Link>
-          <Link
-            href="/setting-profile"
-            className="flex flex-col items-center"
-            onClick={() => handleTabClick("settings")}
+            onClick={() => handleTabClick("settings", "/setting-profile")}
           >
             <Image
               src={activeNav === "settings" ? SettingActiveIcon : SettingIcon}
@@ -129,9 +128,9 @@ export default function Navbar() {
             >
               Settings
             </p>
-          </Link>
+          </div>
         </div>
       </div>
     </div>
   );
-};
+}
