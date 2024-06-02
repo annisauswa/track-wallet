@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="w-full flex flex-row justify-between">
         <div className="w-full flex justify-between items-end">
           <div
-            className="flex flex-col items-center"
+            className="flex flex-col items-center cursor-pointer"
             onClick={() => handleTabClick("home", "/")}
           >
             <Image
@@ -65,7 +65,7 @@ export default function Navbar() {
             </p>
           </div>
           <div
-            className="flex flex-col items-center"
+            className="flex flex-col items-center cursor-pointer"
             onClick={() => handleTabClick("add", "/input")}
           >
             <Image
@@ -84,7 +84,7 @@ export default function Navbar() {
             </p>
           </div>
           <div
-            className="flex flex-col items-center"
+            className="flex flex-col items-center cursor-pointer"
             onClick={() => handleTabClick("transaction", "/transaction")}
           >
             <Image
@@ -109,7 +109,7 @@ export default function Navbar() {
             </p>
           </div>
           <div
-            className="flex flex-col items-center"
+            className="flex flex-col items-center cursor-pointer"
             onClick={() => handleTabClick("settings", "/setting-profile")}
           >
             <Image
