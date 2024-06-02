@@ -7,7 +7,7 @@ import IncomeSmall from "../../../../public/income.png";
 import ExpenseSmall from "../../../../public/expense.png";
 import StatisticSmall from "../../../../public/statistic.png";
 import AIScanSmall from "../../../../public/file.png";
-import HistorySmall from "../../../../public/Transaction.png";
+import HistorySmall from "../../../../public/transaction.png";
 import formatPrice from "../../../../utils/formatPrice";
 import { useGlobalContext } from '../../../../context/IncomeContext';
 

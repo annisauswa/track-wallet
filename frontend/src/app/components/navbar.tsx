@@ -9,7 +9,7 @@ import TransactionIcon from "../../../public/transaction-nav.png";
 import SettingIcon from "../../../public/settings.png";
 import HomeActiveIcon from "../../../public/home-active.png";
 import AddActiveIcon from "../../../public/add-active.png";
-import TransactionActiveIcon from "../../../public/Transaction-active.png";
+import TransactionActiveIcon from "../../../public/transaction-active.png";
 import SettingActiveIcon from "../../../public/settings-active.png";
 
 export default function Navbar() {
