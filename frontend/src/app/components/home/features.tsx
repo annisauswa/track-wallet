@@ -82,18 +82,6 @@ const Features = () => {
           </button>
           <p className="pt-1.5">Expense</p>
         </Link>
-        <Link href="#!" className="text-center">
-          <button className="flex flex-col items-center justify-center rounded-[16px] bg-white px-[13px] py-[19px]">
-            <Image
-              src={StatisticSmall}
-              alt="Statistic icon"
-              width={21}
-              height={25}
-              className="w-8"
-            />
-          </button>
-          <p className="pt-1.5">Statistic</p>
-        </Link>
         <Link href="aiscanner" className="text-center">
           <button className="flex flex-col items-center justify-center rounded-[16px] bg-white py-[15px] px-[16px]">
             <Image

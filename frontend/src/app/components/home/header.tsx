@@ -19,11 +19,6 @@ const Header = () => {
           </Link>
           <p className="ml-3 font-medium text-[18px]">Hi, John Doe</p>
         </div>
-        <Link href="/notification">
-          <button className="ml-4">
-            <IoNotifications size={29} />
-          </button>
-        </Link>
       </div>
     </div>
   );

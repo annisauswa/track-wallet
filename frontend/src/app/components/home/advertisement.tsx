@@ -1,12 +1,12 @@
 "use client";
 
-import { signOut, useSession } from 'next-auth/react';
-import { redirect } from 'next/navigation';
+import { signOut, useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import AdvertisementImg from "../../../../public/advertisement.png";
+import AdvertisementImg from "../../../../public/advertisement2.png";
 
 const Advertisement = () => {
   const settings = {
@@ -25,7 +25,7 @@ const Advertisement = () => {
   const session = useSession({
     required: true,
     onUnauthenticated() {
-      redirect('/auth/login');
+      redirect("/auth/login");
     },
   });
 
@@ -39,6 +39,7 @@ const Advertisement = () => {
             alt="Advertisement 1"
             width={250}
             height={133}
+            className="w-[280px]"
           />
         </div>
         <div>
@@ -47,6 +48,7 @@ const Advertisement = () => {
             alt="Advertisement 2"
             width={250}
             height={133}
+            className="w-[280px]"
           />
         </div>
         <div>
@@ -55,6 +57,7 @@ const Advertisement = () => {
             alt="Advertisement 3"
             width={250}
             height={133}
+            className="w-[280px]"
           />
         </div>
       </Slider>
