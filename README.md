@@ -12,4 +12,9 @@ Ketua Kelompok: Annisa Uswa Sufia
 ## Deployed Apps
 Frontend [track-wallet](https://track-wallet-three.vercel.app/)
 
+`
+  username: test@gmail.com
+  password: Zildiray123
+`
+
 Backend [FastAPI](http://74.235.92.71:8000/)
