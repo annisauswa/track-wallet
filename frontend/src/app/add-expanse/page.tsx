@@ -30,7 +30,7 @@ function AddExpanse() {
 
   const updateCategory = async (title:string) => {
     try {
-      const response = await fetch(`http://localhost:8000/category?data=${title}`, {
+      const response = await fetch(`http://74.235.92.71:8000/category?data=${title}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
